@@ -1,0 +1,37 @@
+Entidades: Arquivos, Impressora, Usuário, Relatorio.
+
+Usuário atributos: id, nome, setor;
+
+Impresora, atributos: Id, Modelo, setor, IP;
+
+Arquivos, atributos: Id, nome, paginas;
+
+--============================================
+create database ControleImpressao;
+use ControleImpressao
+
+create table Usuario (ID_Usuario integer auto_increment not null primary key,
+                      Setor_Usuario varchar(50) not null,
+                      Nome_Usuario varchar(50) not null);
+
+create table Arquivo (ID_Arquivo integer auto_increment not null primary key,
+                      paginas integer not null,
+                      Nome varchar(50) not null,
+                      DataHora datetime not null,
+                      ID_Usuario integer not null);
+
+ALTER TABLE `arquivo` ADD CONSTRAINT `fk_ID_Usuario` FOREIGN KEY ( `ID_Usuario` ) REFERENCES `Usuario` ( `ID_Usuario`);
+                      	
+create table Impressora (ID_Impressora integer auto_increment not null primary key,
+                         modelo varchar(50) not null,
+                         IP bigint not null,
+                         Setor varchar(50) not null);
+
+
+create table Imprime (Qtd_Impressoes varchar(10) not null,
+                      ID_Impressora integer not null,
+					  ID_Arquivo integer not null);
+
+ALTER TABLE `imprime` ADD CONSTRAINT `fk_ID_Impressora` FOREIGN KEY ( `ID_Impressora` ) REFERENCES `Impressora` ( `ID_Impressora`);
+                      
+ALTER TABLE `imprime` ADD CONSTRAINT `fk_ID_Arquivo` FOREIGN KEY ( `ID_Arquivo` ) REFERENCES `Arquivo` ( `ID_Arquivo`);
