@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8"/>
+	<title>Relatorio - Controle de Impressões</title>
+	<link rel="stylesheet" type="text/css" href="_css/estilo.css">
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+		function ajaxCall(){
+		$.ajax({ url: 'readJson.php',
+        	success: function(e){
+            alert(e);
+	    }
+	    });
+		}	
+	</script>
+
+</head>
+<body>
+<div = id="interface">
+	<header id="cabecalho">
+		<nav id="menu1">
+		<ul type="disc">
+			<li><a href="home.php">
+				<div class="exibir"><img src="_imagens/_icones/home.png">
+				<span class="exibirtexto">Página Inicial</span>
+				</div></a>
+			</li>
+
+			<li><a href="cadastro.html">
+				<div class="exibir"><img src="_imagens/_icones/users.png">
+				<span class="exibirtexto">Cadastro</span>
+				</div></a>
+			</li>
+
+			<li><a href="relatorio.html">
+				<div class="exibir"><img src="_imagens/_icones/relatorios_menor.png">
+				<span class="exibirtexto">Relatorios</span>
+				</div></a>
+			</li>
+
+			<li><a href="help.html">
+				<div class="exibir"><img src="_imagens/_icones/help.png">
+				<span class="exibirtexto">Ajuda</span>
+				</div></a>
+			</li>
+			<li><div class="exibir"><img src="_imagens/_icones/json.png" onclick="ajaxCall()" >
+					<span class="exibirtexto">Atualizar Base de Dados</span>
+					</div>
+			</li>
+		</ul>
+		</nav>
+	<p id="top" ><img src="_imagens/_logos/logo-media.png"></p>
+	</header>
+
+<!-- Através de uma tabela 
+
+<label id="relatorio" for="tiporelatorio">Níveis de Relatório:</label><br/>
+<table id="niveisrelatorio">
+	<tr>
+		<td class="ce"><a href="formrelatorio.html#usuario" target="iframe_formulario"><img src="_imagens/_icones/user.png"></a></td>
+		<td class="cd">Nível de Usuário</td>
+	</tr>
+	<tr>
+		<td class="ce"><a href="formrelatorio.html#setor" target="iframe_formulario"><img src="_imagens/_icones/setor.png"></a></td>
+		<td class="cd">Nível de Setor</td>
+	</tr>
+	<tr>
+		<td class="ce"><a href="formrelatorio.html#impressora" target="iframe_formulario"><img src="_imagens/_icones/printer.png"></a></td>
+		<td class="cd">Nível de Impressora</td>
+	</tr>
+</table>-->
+
+<!-- Através de uma simples opção de imagens -->
+
+
+<section id="idtiporelatorio" name="tiporelatorio">
+<label id="relatorio" for="tiporelatorio">Níveis de Relatório:</label><br/>
+	<div class="exirelatorio">
+		<a id="a1" href="_iframes/formrelatorio.html#usuario" target="iframe_formulario">
+		<img src="_imagens/_icones/user.png">
+		<span class="exibirtexto">Nível de Usuário</span>
+		</a>
+	</div><br/>
+	<div class="exirelatorio">
+		<a id="a1" href="_iframes/formrelatorio.html#setor" target="iframe_formulario">
+		<img src="_imagens/_icones/setor1.png">
+		<span class="exibirtexto">Nível de Setor</span>
+		</a>
+	</div><br/>
+	<div class="exirelatorio">
+		<a id="a1" href="_iframes/formrelatorio.html#impressora" target="iframe_formulario">
+		<img src="_imagens/_icones/printer.png">
+		<span class="exibirtexto">Nível de Impressora</span>
+		</a>
+	</div><br/>
+	<div class="exirelatorio">
+		<a id="a1" href="_iframes/formrelatorio.html#chamado" target="iframe_formulario">
+		<img src="_imagens/_icones/chamado.png">
+		<span class="exibirtexto">Nível de Chamado</span>
+		</a>
+	</div><br/>
+</section>
+
+<section id="conteudo">
+	<iframe src="_iframes/formrelatorio.html" name="iframe_formulario" id="iframe_formulario"></iframe>
+</section>
+
+<footer id="rodape">
+<p>Copyright 2016 - by Survivor's <br/>
+| <a href="http://www.unibratec.edu.br/faculdade" target="_blank">Unibratec</a> |</p>
+</footer>
+</div>
+</body>
+</html>

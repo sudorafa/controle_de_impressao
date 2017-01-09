@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8"/>
+	<title>Relatorio - Controle de Impressões</title>
+	<link rel="stylesheet" type="text/css" href="_css/estilo.css">
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+		function ajaxCall(){
+		$.ajax({ url: 'readJson.php',
+	        success: function(e){
+	        alert(e);
+	    }
+	    });
+		}
+	</script>
+
+</head>
+<body>
+<div = id="interface">
+	<header id="cabecalho">
+		<nav id="menu1">
+		<ul type="disc">
+			<li><a href="home.php">
+				<div class="exibir"><img src="_imagens/_icones/home.png">
+				<span class="exibirtexto">Página Inicial</span>
+				</div></a>
+			</li>
+
+			<li><a href="cadastro.html">
+				<div class="exibir"><img src="_imagens/_icones/users.png">
+				<span class="exibirtexto">Cadastro</span>
+				</div></a>
+			</li>
+
+			<li><a href="relatorio.html">
+				<div class="exibir"><img src="_imagens/_icones/relatorios_menor.png">
+				<span class="exibirtexto">Relatorios</span>
+				</div></a>
+			</li>
+
+			<li><a href="help.html">
+				<div class="exibir"><img src="_imagens/_icones/help.png">
+				<span class="exibirtexto">Ajuda</span>
+				</div></a>
+			</li>
+			<li><div class="exibir"><img src="_imagens/_icones/json.png" onclick="ajaxCall()" >
+				<span class="exibirtexto">Atualizar Base de Dados</span>
+				</div>
+			</li>
+		</ul>
+		</nav>
+	<p id="top" ><img src="_imagens/_logos/logo-media.png"></p>
+	</header>
+
+
+<section id="conteudo_chamado">
+	<iframe src="_iframes/formchamado.html" name="iframe_chamado" id="iframe_chamado"></iframe>
+</section>
+
+
+<footer id="rodape">
+<p>Copyright 2016 - by Survivor's <br/>
+| <a href="http://www.unibratec.edu.br/faculdade" target="_blank">Unibratec</a> |</p>
+</footer>
+</div>
+</body>
+</html>

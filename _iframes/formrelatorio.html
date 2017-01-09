@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Formulários</title>
+	<link rel="stylesheet" href="../_css/bootstrap.css">
+  <style> 
+    body{
+        overflow:hidden;
+        /*opacity: 0.5;
+        background-color: transparent;  */
+      }
+  </style>
+  <script type="text/javascript">
+      function marca_desmarca(){
+          var e = document.getElementsByTagName("input");
+          var x = document.getElementById("texto");
+          var master = document.getElementById("checkbox_master");  
+          var bool;
+
+          if (x.innerHTML == "Marcar Todos") // if (master.checked == true) // <-- substituir "IF" para var master.checked sempre true.
+          { bool = true;  x.innerHTML = "Desmarcar Todos";  }
+          else
+          { bool = false; x.innerHTML = "Marcar Todos";     }
+
+          for(var i=1;i<e.length;i++)
+          {
+            if (e[i].type=="checkbox")
+            {
+              e[i].checked = bool;
+            } 
+          }
+          master.checked = false; // se var master.checked for sempre true -> apagar esta linha
+      }
+  </script>
+</head>
+<body>
+<article id="usuario">
+  <div class="container">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h2 class="panel-title">Preencha os Campos para gerar os relatórios</h2>
+      </div>
+      <div class="panel-body">
+          
+          <form action="../_php/_mysql/relatorioUser.php" method="POST">
+  	    	<label for="nome">Informe o ID do Usuário para pesquisa:</label>
+  	        <input type="number" name="id_usuario" id="id_usuario">
+
+  	        <fieldset>
+              <legend>Colunas à serem exibidas no relatório</legend>
+                <input id="checkbox_master" onclick="marca_desmarca();" type="checkbox"><span id="texto">Marcar Todos</span></input><br/>
+                <input type="checkbox" name="check_list[]" value="a.nome" />Nome do Arquivo<br/>
+                <input type="checkbox" name="check_list[]" value="a.Status" />Status do Arquivo <br />
+                <input type="checkbox" name="check_list[]" value="a.paginas" />Qtd. de Páginas<br/>
+                <!--<input type="checkbox" name="check_list[]" value="i.copias" />Cópias Impressas<br/>-->
+                <input type="checkbox" name="check_list[]" value="i.DataHora" />Dia e Hora da Impressão<br/>
+                <input type="checkbox" name="check_list[]" value="i.ID_Impressora " />ID_Impressora<br />
+                <input type="checkbox" name="totalimpressoes" value="totalimpressoes" />Total de Impressões do Usuário<br/>
+                <input type="checkbox" name="totalpimpressas" value="totalpimpressas" />Total de Páginas Impressas pelo Usuário<br/>
+         		</fieldset>
+          	<input type="submit" value="Enviar" />
+  	    </form>
+
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<article id="setor">
+  <div class="container">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h2 class="panel-title">Preencha os Campos para gerar os relatórios</h2>
+      </div>
+      <div class="panel-body">
+          
+          <form action="../_php/_mysql/relatorioSetor.php" method="POST">
+  	    	<label for="nomesetor">Informe o nome do setor para pesquisa:</label>
+  	        <input type="text" name="nomesetor" id="nomesetor">
+
+  	        <fieldset>
+              <legend>Colunas à serem exibidas no relatório</legend>
+                <input type="checkbox" name="Nome_Usuario" value="Nome_Usuario" />Nome do Funcionário <br />
+                <input type="checkbox" name="printid" value="ID_Impressora " />ID_Impressora<br />
+                <input type="checkbox" name="totalimpressoes" value="totalimpressoes" />Total de Impressões do Usuário<br/>
+         		</fieldset>
+          	<input type="submit" value="Enviar" />
+  	    </form>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<article id="impressora">
+  <div class="container">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h2 class="panel-title">Preencha os Campos para gerar os relatórios</h2>
+      </div>
+      <div class="panel-body">
+          
+          <form action="../_php/_mysql/relatorioPrinter.php" method="POST">
+  	    	<label for="nomesetor">Informe o ID da impressora para pesquisa:</label>
+  	        <input type="text" name="ID_Impressora" id="ID_Impressora">
+
+  	        <fieldset>
+              <legend>Colunas à serem exibidas no relatório</legend>
+                <input id="checkbox_master" onclick="marca_desmarca();" type="checkbox"><span id="texto">Marcar Todos</span></input><br/>
+                <input type="checkbox" name="check_list[]" value="p.modelo" />Modelo da Impressora<br />
+                <input type="checkbox" name="check_list[]" value="i.dataHora" />Data e Hora da Impressão<br />
+                <input type="checkbox" name="check_list[]" value="a.nome" />Nome do arquivo impresso<br />
+                <input type="checkbox" name="check_list[]" value="a.status" />Status da impressão<br />
+                <input type="checkbox" name="check_list[]" value="a.paginas" />Quantidade de páginas<br />
+                <input type="checkbox" name="check_list[]" value="u.nome_usuario" />Nome do usuario que realizou a impressão<br />
+                <input type="checkbox" name="totalpimpressas" value="totalpimpressas" />Total de páginas impressas pela impressora<br/>
+         		</fieldset>
+          	<input type="submit" value="Enviar" />
+  	    </form>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<article id="chamado">
+  <div class="container">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h2 class="panel-title">Preencha os Campos para gerar os relatórios</h2>
+      </div>
+      <div class="panel-body">
+         
+         <form action="../_php/_mysql/relatorioChamado.php" method="POST">
+          <label for="nomesetor">Informe o ID do usuário para pesquisa:</label>
+            <input type="text" name="ID_Usuario" id="ID_Usuario">
+
+            <fieldset>
+              <legend>Colunas à serem exibidas no relatório</legend>
+                <input id="checkbox_master" onclick="marca_desmarca();" type="checkbox"><span id="texto">Marcar Todos</span></input><br/>
+                <input type="checkbox" name="check_list[]" value="id_chamado" />ID do Chamado<br />
+                <input type="checkbox" name="check_list[]" value="grauUrgencia" />Grau de Urgencia<br />
+                <input type="checkbox" name="check_list[]" value="descricao" />Descrição<br />
+                
+            </fieldset>
+            <input type="submit" value="Enviar" />
+        </form>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+
+<!--
+<article id="escolha">
+  <div class="container">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h2 class="panel-title">Para relatorios de chamados escolha a opção:</h2>
+      </div>
+      <div class="panel-body">
+         <a href="formrelatorio.html#chamado"> <img src="_imagens/_botoes/chamado.png""> Todos </a>
+         <a href="formrelatorio.html#chamado"> <img src="_imagens/_botoes/todos.png""> Id </a>
+
+      </div>
+    </div>
+  </div>
+</article>
+-->
+
+</body>
+</html>

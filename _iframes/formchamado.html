@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8"/>
+	<title>Relatorio - Controle de Impressões</title>
+	<link rel="stylesheet" type="text/css" href="../_css/estilo_chamado.css">
+</head>
+
+<body>
+	
+<article id="formChamado">
+	<form id="formcontato" method="POST" action="../_php/_mysql/insert_chamado.php" > 
+		<!-- action="mailto:rafaelvasconcelos7@gmail.com" -->
+		<fieldset id="fdset01">
+			<fieldset id="fdset02"><legend>Identificação</legend>
+				<!--<p><label for="inome">Nome: </label><input type="text" name="nnome" id="inome" size="40" maxlength="40" placeholder="Nome Completo" required> </p>-->
+				<p><label for="Id_Usuario">Informe seu ID:</label> <input type="number" name="Id_Usuario" id="Id_Usuario"  min="1" max="9999" placeholder="Matricula" required> </p>
+				<!--<p><label for="isetor">Setor:</label> <input type="text" name="nsetor" id="isetor"  size="10" maxlength="10" placeholder="Nome do Setor" required></p>-->
+				<!--<p><label for="iemail">E-Mail: </label><input type="email" name="nemail" id="iemail"  size="40" maxlength="40" placeholder="exemplo@survivors.com.br" required> </p>-->
+				
+				<!--<fieldset id="fdset03"><legend>Sexo</legend>
+					<input type="radio" name="nsex" id="mSex" value="M" checked><label for="mSex">Masculino</label><br/>
+					<input type="radio" name="nsex" id="fSex" value="F"><label for="fSex">Teteu Guilherme</label>
+				</fieldset>-->
+			</fieldset >
+			
+			<fieldset id="fdset04"><legend>Descrição do Chamado</legend>
+				<p>Grau de Urgência: <input type="range" name="ngrau" id="igrau" min="1" max="10" value="0"></p>
+				
+				<p>Descrição do Chamado: <textarea name="descricao" form="formcontato" required></textarea>
+				</p>
+			</fieldset>
+				<br/>
+				<input type="image" src="../_imagens/_botoes/send.png" border="0" alt="Submit" id="btnenviar"/>
+				<img src="../_imagens/_botoes/limpar4.png" id="btnlimpar" onClick="document.forms[0].reset()" style="cursor:pointer;cursor:hand">
+		</fieldset>
+	</form>
+</article>
+
+
+
+</body>
+</html>
+
+

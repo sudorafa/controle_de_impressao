@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastros - Controle de Impressão</title>
+	<link rel="stylesheet" type="text/css" href="_css/estilo.css">
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+		function ajaxCall(){
+		$.ajax({ url: 'readJson.php',
+        	success: function(e){
+            alert(e);
+        }
+    	});
+		}
+	</script>
+
+</head>
+<body>
+<div = id="interface">
+	<header id="cabecalho">
+		<nav id="menu1">
+		<ul type="disc">
+			<li><a href="home.php">
+				<div class="exibir"><img src="_imagens/_icones/home.png">
+				<span class="exibirtexto">Página Inicial</span>
+				</div></a>
+			</li>
+
+			<li><a href="cadastro.html">
+				<div class="exibir"><img src="_imagens/_icones/users.png">
+				<span class="exibirtexto">Cadastro</span>
+				</div></a>
+			</li>
+
+			<li><a href="relatorio.html">
+				<div class="exibir"><img src="_imagens/_icones/relatorios_menor.png">
+				<span class="exibirtexto">Relatorios</span>
+				</div></a>
+			</li>
+
+			<li><a href="help.html">
+				<div class="exibir"><img src="_imagens/_icones/help.png">
+				<span class="exibirtexto">Ajuda</span>
+				</div></a>
+			</li>
+			<li><div class="exibir"><img src="_imagens/_icones/json.png" onclick="ajaxCall()" >
+					<span class="exibirtexto">Atualizar Base de Dados</span>
+					</div>
+				</li>
+		</ul>
+	</nav>
+	<p id="top" ><img src="_imagens/_logos/logo-media.png"></p>
+	</header>
+
+<form action="_php/_mysql/insert_user.php" method="POST">
+	<fieldset id="fdsetcadastro"><legend>Cadastro de Usuários</legend>
+		<p> <label for="username" >Nome: </label><input type="text" name="username" id="username" size="40" maxlength="40" placeholder="Nome Completo" disabled></p>
+		<p> <label for="usersector" >Setor: </label><input type="text" name="usersetcor" id="usersetcor" size="40" maxlength="40" placeholder="Informe o Setor" disabled></p>
+		<input type="image" src="_imagens/_botoes/send1.png" alt="Submit" id= "btncadastro" disabled />
+		<input type="image" src="_imagens/_botoes/limpar4.png" alt="reset" id="btnlimpar1" disabled />
+	</fieldset>
+</form>
+
+<footer id="rodape">
+<p>Copyright 2016 - by Survivor's <br/>
+| <a href="http://www.unibratec.edu.br/faculdade" target="_blank">Unibratec</a> |</p>
+</footer>
+</div>
+</body>
+</html>
